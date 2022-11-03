@@ -69,7 +69,10 @@ margin: 0.5em;
     background-color:#374151 ;
     color: #fff
 }
-
+ img{
+  display: inline-block;
+  
+ }
 
 
 
