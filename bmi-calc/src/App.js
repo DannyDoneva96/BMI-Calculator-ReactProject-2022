@@ -2,12 +2,13 @@ import { useState } from 'react'
 import "./index.css"
 function App() {
 
-  const [weight, setWeight] = useState(0)
-  const [height, setHeight] = useState(0)
+  const [weight, setWeight] = useState()
+  const [height, setHeight] = useState()
   const [bmi, setBmi] = useState('')
   const [message, setMessage] = useState('')
 
   let imgSrc = ''
+  
   let reload = () => { window.location.reload() }
 
 
@@ -25,19 +26,31 @@ function App() {
 
 
       if (bmi < 18.5) {
-        setMessage('You are underweight')
+        setMessage('You are underweight!')
       } else if (bmi >= 18.5 && bmi < 25) {
-        setMessage('You are in perfect weight')
+        setMessage('You are in perfect weight!')
       } else if (bmi >= 25 && bmi < 30) {
-        setMessage('You are Overweight')
+        setMessage('You are Overweight!')
+
       } else if (bmi >= 30) {
         setMessage('Obesity! Go to the gym!')
+
       }
     }
   }
 
 
+  if (bmi < 18.5 && bmi != 0) {
+    imgSrc = require('./images/Timon.png')
+  } else if (bmi >= 18.5 && bmi < 25) {
+    imgSrc = require('./images/Simba.png')
+  } else if (bmi >= 25 && bmi < 30) {
+    imgSrc = require('./images/pumba.jpg')
 
+  } else if (bmi >= 30) {
+    imgSrc = require('./images/png-transparent-tiana-mama-odie-disney-princess-dr-facilier-the-walt-disney-company-fat-man-musician-cartoon-film.png')
+
+  }
 
   return (
     <div className="app">
@@ -61,7 +74,7 @@ function App() {
           <p className="message">{message}</p>
         </div>
         <div className="img-container">
-          <img src={imgSrc} alt="photo" />
+          <img src={imgSrc}  />
         </div>
       </div>
     </div>
