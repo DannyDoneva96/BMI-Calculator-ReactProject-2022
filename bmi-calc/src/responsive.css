@@ -1,0 +1,39 @@
+@media screen and (max-width: 920px) {
+
+    .container{
+
+        margin: 0;
+        height: 100vh;
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 530px) {
+
+    .form-calc{
+        display:flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        
+    }
+    .weight-div,.height-div{ width:unset}
+
+    img{
+        width: 200px;
+    }
+
+    .btn-div{ width:100%}
+
+    .img-container {
+        width: 300;
+        border: 1px solid black;
+      }
+      
+       img {
+        width: 100%;
+        height: auto;
+      }
+      
+}
+

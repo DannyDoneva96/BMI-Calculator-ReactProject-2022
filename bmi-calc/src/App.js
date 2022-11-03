@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import "./index.css"
+import"./responsive.css"
 function App() {
 
   const [weight, setWeight] = useState()
@@ -15,15 +16,16 @@ function App() {
   let calculationBmi = (e) => {
     e.preventDefault()
 
-    if (weight == 0 || height == 0) {
-      alert('Please enter a valid weight and height!')
-
-    } else {
+   
 
       let bmi = (weight / (height * height))
 
       setBmi(bmi.toFixed(1))
-
+         
+      if (isNaN(bmi)) {
+        alert('Please enter a valid weight and height!')
+          reload()
+      }
 
       if (bmi < 18.5) {
         setMessage('You are underweight!')
@@ -36,7 +38,7 @@ function App() {
         setMessage('Obesity! Go to the gym!')
 
       }
-    }
+    
   }
 
 
@@ -45,7 +47,7 @@ function App() {
   } else if (bmi >= 18.5 && bmi < 25) {
     imgSrc = require('./images/Simba.png')
   } else if (bmi >= 25 && bmi < 30) {
-    imgSrc = require('./images/pumba.jpg')
+    imgSrc = require('./images/pumba.png')
 
   } else if (bmi >= 30) {
     imgSrc = require('./images/png-transparent-tiana-mama-odie-disney-princess-dr-facilier-the-walt-disney-company-fat-man-musician-cartoon-film.png')
